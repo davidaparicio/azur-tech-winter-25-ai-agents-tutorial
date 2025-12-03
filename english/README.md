@@ -7,11 +7,13 @@ This repository contains a tutorial on building AI agents using LangChain and La
 This tutorial consists of three progressive notebooks:
 
 1. **`intro_langchain.ipynb`** - Introduction to LangChain fundamentals
+
    - Understanding basic building blocks (LLM, prompts, chains)
    - Building simple question/answer pipelines
    - Creating a simplified RAG (Retrieval-Augmented Generation) system
 
 2. **`intro_langgraph.ipynb`** - Introduction to LangGraph
+
    - Understanding StateGraph concepts
    - Building workflows as graphs
    - Creating a simple conversational agent
@@ -32,17 +34,20 @@ This tutorial consists of three progressive notebooks:
 ### Installation
 
 1. Clone this repository:
+
 ```bash
 git clone <repository-url>
 cd Telecom-Valley-Winter-Tech-2025/ai-agents-tutorial/english
 ```
 
 2. Install required packages:
+
 ```bash
 pip install -U langchain-core langchain-openai langgraph langchain-text-splitters
 ```
 
 For visualization features (Mermaid PNG generation):
+
 ```bash
 pip install -U grandalf
 ```
@@ -64,22 +69,16 @@ export LANGSMITH_TRACING="true"
 
 **Important**: Never commit your API keys to the repository. The notebooks have been configured to use environment variables - make sure to fill in your own keys before running.
 
-### Image Assets
-
-Some notebooks reference image files for visualization:
-- `react_agent.png` - Diagram showing ReAct agent structure
-- `agent_workflow.png` - Diagram showing agent workflow
-
-These images should be placed in a location accessible to your notebooks, or you can update the paths in the notebook cells accordingly.
-
 ## 📖 Usage
 
 1. Start Jupyter Notebook:
+
 ```bash
 jupyter notebook
 ```
 
 2. Open the notebooks in order:
+
    - Start with `intro_langchain.ipynb` for LangChain basics
    - Then `intro_langgraph.ipynb` for LangGraph concepts
    - Finally `agents_meteo_calendrier.ipynb` for the complete agent example
@@ -88,7 +87,7 @@ jupyter notebook
 
 ## 📄 Slides
 
-**Note**: The `slides.pdf` file is included for convenience and sharing purposes. While PDFs are not ideal for version control (they're binary files and harder to track changes), they provide an easy way to share presentation materials with participants. For future versions, consider using markdown-based presentation tools or keeping slides in a separate repository.
+**Note**: The `slides.pdf` file is included for convenience and sharing purposes.
 
 ## 🛠️ Technologies Used
 
@@ -113,5 +112,6 @@ Feel free to open issues or submit pull requests for improvements.
 
 ## 👤 Author
 
-Presented at Telecom Valley Winter Tech 2025
-
+Presented by Marie Vaucher during Telecom Valley Winter Tech 2025 event.
+marie@aztelia.com
++33 7 83 17 88 35

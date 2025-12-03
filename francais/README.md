@@ -7,11 +7,13 @@ Ce dépôt contient un tutoriel sur la construction d'agents IA en utilisant Lan
 Ce tutoriel se compose de trois notebooks progressifs :
 
 1. **`intro_langchain.ipynb`** - Introduction aux fondamentaux de LangChain
+
    - Comprendre les briques de base (LLM, prompts, chaînes)
    - Construire des pipelines simples de question/réponse
    - Créer un système RAG (Retrieval-Augmented Generation) simplifié
 
 2. **`intro_langgraph.ipynb`** - Introduction à LangGraph
+
    - Comprendre les concepts de StateGraph
    - Construire des workflows sous forme de graphes
    - Créer un agent conversationnel simple
@@ -32,17 +34,20 @@ Ce tutoriel se compose de trois notebooks progressifs :
 ### Installation
 
 1. Clonez ce dépôt :
+
 ```bash
 git clone <repository-url>
 cd Telecom-Valley-Winter-Tech-2025/ai-agents-tutorial/francais
 ```
 
 2. Installez les packages requis :
+
 ```bash
 pip install -U langchain-core langchain-openai langgraph langchain-text-splitters
 ```
 
 Pour les fonctionnalités de visualisation (génération PNG Mermaid) :
+
 ```bash
 pip install -U grandalf
 ```
@@ -64,22 +69,16 @@ export LANGSMITH_TRACING="true"
 
 **Important** : Ne committez jamais vos clés API dans le dépôt. Les notebooks ont été configurés pour utiliser des variables d'environnement - assurez-vous de remplir vos propres clés avant d'exécuter.
 
-### Ressources d'images
-
-Certains notebooks référencent des fichiers d'images pour la visualisation :
-- `react_agent.png` - Diagramme montrant la structure d'un agent ReAct
-- `agent_workflow.png` - Diagramme montrant le workflow d'un agent
-
-Ces images doivent être placées dans un emplacement accessible à vos notebooks, ou vous pouvez mettre à jour les chemins dans les cellules des notebooks en conséquence.
-
 ## 📖 Utilisation
 
 1. Démarrez Jupyter Notebook :
+
 ```bash
 jupyter notebook
 ```
 
 2. Ouvrez les notebooks dans l'ordre :
+
    - Commencez par `intro_langchain.ipynb` pour les bases de LangChain
    - Puis `intro_langgraph.ipynb` pour les concepts LangGraph
    - Enfin `agents_meteo_calendrier.ipynb` pour l'exemple complet d'agent
@@ -88,7 +87,7 @@ jupyter notebook
 
 ## 📄 Diapositives
 
-**Note** : Le fichier `slides.pdf` est inclus pour des raisons de commodité et de partage. Bien que les PDF ne soient pas idéaux pour le contrôle de version (ce sont des fichiers binaires et plus difficiles à suivre les modifications), ils offrent un moyen facile de partager les matériaux de présentation avec les participants. Pour les versions futures, envisagez d'utiliser des outils de présentation basés sur markdown ou de garder les diapositives dans un dépôt séparé.
+**Note** : Le fichier `slides.pdf` est inclus pour des raisons de commodité de partage.
 
 ## 🛠️ Technologies utilisées
 
@@ -107,11 +106,8 @@ jupyter notebook
 
 N'hésitez pas à ouvrir des issues ou à soumettre des pull requests pour des améliorations.
 
-## 📄 Licence
-
-[Ajoutez votre licence ici]
-
 ## 👤 Auteur
 
-Présenté lors de Telecom Valley Winter Tech 2025
-
+Présenté par Marie Vaucher lors de Telecom Valley Winter Tech 2025
+marie@aztelia.com
++33 7 83 17 88 35
