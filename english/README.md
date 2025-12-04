@@ -106,10 +106,6 @@ jupyter notebook
 
 Feel free to open issues or submit pull requests for improvements.
 
-## 📄 License
-
-[Add your license here]
-
 ## 👤 Author
 
 Presented by Marie Vaucher during Telecom Valley Winter Tech 2025 event.
