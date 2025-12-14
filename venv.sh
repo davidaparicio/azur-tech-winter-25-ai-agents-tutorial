@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+# Get all Python version with Brew
+# ls -la /opt/homebrew/bin/python3* /usr/bin/python3* 2>/dev/null | grep -v "\.pyc"
+# /opt/homebrew/bin/python3.12 -m venv .venv
+
 #alias venv="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3 -m venv .venv && source ./.venv/bin/activate; fi"
 # Check if virtual environment exists and activate it, otherwise create one
 if [ -e ./.venv ]; then
@@ -28,6 +32,8 @@ else
     fi
 fi
 
+pip3 install --upgrade pip
+
 # Ensure ipykernel is installed (for existing venvs too)
 if ! python -c "import ipykernel" 2>/dev/null; then
     echo "ipykernel not found, installing..."
@@ -53,4 +59,41 @@ required_version="3.10.9" # Version used to create the notebooks
 # Latest version "3.14.2" / 11 December 2025
 if [ "$python_version" != "$required_version" ]; then
     echo "Warning: Python version is $python_version, but notebooks were created for $required_version. You may need to install additional packages." >&2
-fi  
+fi
+
+# Doc: https://realpython.com/intro-to-pyenv/
+
+# # 1. Install pyenv
+# brew install pyenv
+
+# # 2. Add to your shell configuration (if not already done)
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+# echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+# echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+# # 3. Restart your shell or source the config
+# source ~/.zshrc
+
+# # 4. Install Python 3.11 or 3.12 (recommended for Langfuse compatibility)
+# pyenv install 3.12.0
+
+# # 5. Set it for your project directory
+# cd /Users/daparicio/code/github.com/davidaparicio/azur-tech-winter-25-ai-agents-tutorial
+# pyenv local 3.12.0
+
+# # 6. Recreate your virtual environment with the new Python version
+# rm -rf .venv
+# python3 -m venv .venv
+# source .venv/bin/activate
+# pip install -r requirements.txt  # or reinstall your dependencies
+
+# source .venv/bin/activate && python -c "from langfuse.callback import CallbackHandler; print('Import successful')" 2>&1
+# source .venv/bin/activate && python -c "from langfuse.langchain import CallbackHandler; print('Import successful with langfuse.langchain')"
+# source .venv/bin/activate && python -c "from langfuse.langchain import CallbackHandler; help(CallbackHandler.__init__)" 2>&1 | head -30
+
+# https://reference.langchain.com/v0.3/python/langchain/agents/langchain.agents.react.agent.create_react_agent.html
+# https://langchain-ai.github.io/langgraph/how-tos/react-agent-from-scratch/
+# https://www.kaggle.com/code/ksmooi/langchain-tool-integrated-with-react-agent
+
+# https://stackoverflow.com/questions/79846977/langchain-%E2%89%A51-0-0-what-is-the-replacement-for-create-react-agent-create-tool-c
+# https://www.reddit.com/r/LangChain/comments/1olhl40/create_agent_in_langchain_10_react_agent_often/

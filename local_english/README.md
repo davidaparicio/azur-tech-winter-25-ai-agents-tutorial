@@ -104,7 +104,7 @@ LMSTUDIO_BASE_URL=http://localhost:1234/v1
 LMSTUDIO_MODEL=local-model
 
 # Optional: Langfuse for local observability
-# LANGFUSE_HOST=http://localhost:3000
+# LANGFUSE_BASE_URL=http://localhost:3000
 # LANGFUSE_PUBLIC_KEY=pk-lf-...
 # LANGFUSE_SECRET_KEY=sk-lf-...
 ```
@@ -157,7 +157,7 @@ pip install langfuse
 4. In your `.env`, use:
 
 ```bash
-LANGFUSE_HOST=https://cloud.langfuse.com
+LANGFUSE_BASE_URL=https://cloud.langfuse.com
 LANGFUSE_PUBLIC_KEY=pk-lf-...
 LANGFUSE_SECRET_KEY=sk-lf-...
 ```
