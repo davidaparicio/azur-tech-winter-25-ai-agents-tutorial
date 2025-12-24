@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-# Get all Python version with Brew
+# Get all Python version with Brew // brew install python@3.10
 # ls -la /opt/homebrew/bin/python3* /usr/bin/python3* 2>/dev/null | grep -v "\.pyc"
-# /opt/homebrew/bin/python3.12 -m venv .venv
+# /opt/homebrew/bin/python3.10 -m venv .venv
 
-#alias venv="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3 -m venv .venv && source ./.venv/bin/activate; fi"
+# alias venv="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3 -m venv .venv && source ./.venv/bin/activate; fi"
 # Check if virtual environment exists and activate it, otherwise create one
 if [ -e ./.venv ]; then
     # Activate existing venv
@@ -33,19 +33,7 @@ else
 fi
 
 pip3 install --upgrade pip
-
-# Ensure ipykernel is installed (for existing venvs too)
-if ! python -c "import ipykernel" 2>/dev/null; then
-    echo "ipykernel not found, installing..."
-    if pip install ipykernel; then
-        echo "ipykernel installed successfully"
-    else
-        echo "Warning: Could not install ipykernel" >&2
-    fi
-fi
-
-pip3 install langchain langchain-core langchain-ollama langchain-openai langgraph python-dotenv langfuse
-# pip3 install langchain-classic
+pip3 install -r requirements.txt
 
 echo "################################################"
 echo "# Virtual environment is set up and activated. #"
@@ -55,7 +43,7 @@ echo "################################################"
 # All notebooks were be created for the Python 3.10.9 interpreter.
 # If you have a different version, you might need to install additional packages.
 python_version=$(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}')")
-required_version="3.10.9" # Version used to create the notebooks
+required_version="3.10.19" #"3.10.9" # Version used to create the notebooks
 # Latest version "3.14.2" / 11 December 2025
 if [ "$python_version" != "$required_version" ]; then
     echo "Warning: Python version is $python_version, but notebooks were created for $required_version. You may need to install additional packages." >&2
@@ -97,3 +85,26 @@ fi
 
 # https://stackoverflow.com/questions/79846977/langchain-%E2%89%A51-0-0-what-is-the-replacement-for-create-react-agent-create-tool-c
 # https://www.reddit.com/r/LangChain/comments/1olhl40/create_agent_in_langchain_10_react_agent_often/
+
+# Python is installed as
+#   /opt/homebrew/bin/python3.10
+
+# Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to
+# `python3.10`, `python3.10-config`, `pip3.10` etc., respectively, are installed into
+#   /opt/homebrew/opt/python@3.10/libexec/bin
+
+# You can install Python packages with
+#   pip3.10 install <package>
+# They will install into the site-package directory
+#   /opt/homebrew/lib/python3.10/site-packages
+
+# `idle3.10` requires tkinter, which is available separately:
+#   brew install python-tk@3.10
+
+# If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
+#   brew install python3
+
+# See: https://docs.brew.sh/Homebrew-and-Python
+
+# If you have : Notebook controller is DISPOSED. View jupyter log for further details.
+# Uninstalling the Python Environments extension -> See: https://github.com/microsoft/vscode-jupyter/issues/16573#issuecomment-3181052186
